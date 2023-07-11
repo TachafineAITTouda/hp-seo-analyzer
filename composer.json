@@ -1,0 +1,51 @@
+{
+	"name": "wp-media/homepage-seo-analyzer",
+	"description": "Homepage SEO Analyzer",
+	"homepage": "https://github.com/TachafineAittouda/homepage-seo-analyzer",
+	"license": "GPL-2.0+",
+	"authors": [
+		{
+			"name": "Tachafine AIT TOUDA",
+			"email": "aittouda.tachafine@gmail.com",
+			"homepage": "https://github.com/TachafineAittouda/"
+		}
+	],
+	"type": "wordpress-plugin",
+	"config": {
+		"sort-packages": true,
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	},
+	"support": {
+		"issues": "https://github.com/wp-media/package-template/issues",
+		"source": "https://github.com/wp-media/package-template"
+	},
+	"require-dev": {
+		"php": "^5.6 || ^7",
+		"brain/monkey": "^2.0",
+		"dealerdirect/phpcodesniffer-composer-installer": "*",
+		"phpcompatibility/phpcompatibility-wp": "*",
+		"phpunit/phpunit": "*",
+		"wp-coding-standards/wpcs": "^2",
+		"wp-media/phpunit": "*"
+	},
+	"autoload": {
+		"psr-4": {
+			"HP_SEO_ANALYZER\\": "inc/"
+		}
+	},
+	"autoload-dev": {},
+	"scripts": {
+		"test-unit": "\"vendor/bin/wpmedia-phpunit\" unit path=Tests/Unit",
+		"test-integration": "\"vendor/bin/wpmedia-phpunit\" integration path=Tests/Integration/",
+		"run-tests": [
+			"@test-unit",
+			"@test-integration"
+		],
+		"install-codestandards": "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run",
+		"phpcs": "phpcs --basepath=.",
+		"phpcs-changed": "./bin/phpcs-changed.sh",
+		"phpcs:fix": "phpcbf"
+	}
+}
